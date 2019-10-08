@@ -1,0 +1,74 @@
+chfImage = new QImage(1280, 1280, QImage::Format_Indexed8);
+    chfImage->setColorCount(3);
+    chfImage->setColor(0, qRgba(169,169,169, 255));  // gray
+    chfImage->setColor(3, qRgba(255, 0, 0, 200)); // Index #0 = Red
+    chfImage->setColor(1, qRgba(255, 255, 0, 182));     // Index #1 = Yellow
+    chfImage->setColor(2, qRgba(0, 0, 0, 182));     // Index #2 = Black
+    chfImage->setColor(4, qRgba(255,127,80, 255)); // orange where no files
+//     chfImage->setColor(4, qRgba(38, 166, 91, 255)); // green where no files
+
+
+    dtedImage = new QImage(1280, 1280, QImage::Format_Indexed8);
+    dtedImage->setColorCount(5);
+    dtedImage->setColor(0, qRgba(169,169,169, 255)); // Index #0 = gray
+    //    dtedImage->setColor(0, qRgba(31, 58, 147, 255)); // Index #0 = Blue
+    dtedImage->setColor(1, qRgba(38, 166, 91, 255));     // Index #1 = Green
+    dtedImage->setColor(2, qRgba(244, 208, 63, 182));     // Index #2 = Yellow
+    dtedImage->setColor(3, qRgba(121,85,72, 200)); // Index #3 = Brown
+    dtedImage->setColor(4, qRgba(242, 38, 19, 200)); // Index #4 = Red
+    dtedImage->setColor(5, qRgba(0, 0, 0, 0)); // Index #5 = Transparent
+    dtedImage->setColor(6, qRgba(31, 58, 147, 182)); // Index #0 = Blue
+    dtedImage->setColor(7, qRgba(255,127,80, 255)); // orange where no files
+//     dtedImage->setColor(7, qRgba(38, 166, 91, 255)); // green where no files
+
+
+
+
+if(elevation < 164)
+            {
+                dtedImage->setPixel(column, row, 6); //blue
+            }
+            else if((elevation >= 164) && (elevation < 656))
+            {
+                dtedImage->setPixel(column, row, 1); //green
+            }
+            else if((elevation >= 656) && (elevation < 1640))
+            {
+                dtedImage->setPixel(column, row, 2); //yellow
+            }
+            else if((elevation >= 1640) && (elevation < 3280))
+            {
+                dtedImage->setPixel(column, row, 3); //brown
+            }
+            else if(elevation > 3280)
+            {
+                dtedImage->setPixel(column, row, 4); //red
+            }
+
+            else
+            {
+               // dtedImage->setPixel(column, row, 0); //transparent
+            }
+            if( elevation == -22){
+                dtedImage->setPixel(column, row, 7); //set red
+            }
+
+
+
+
+
+            if( elev <= (planeAltitude - 305 - 610)){ // 305 m = 1000 ft...... 610 m = 2000 ft
+                chfImage->setPixel(column, row, 2); //set black
+            }
+            else if( elev <= (planeAltitude - 305)){
+                chfImage->setPixel(column, row, 1); //set yellow
+            }
+            else if( elev > (planeAltitude - 305)){
+                chfImage->setPixel(column, row, 3); //set red
+            }
+            if( elev == -22){
+                chfImage->setPixel(column, row, 4); //set orange
+            }
+
+
+

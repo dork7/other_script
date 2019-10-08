@@ -1,0 +1,49 @@
+void MainWindow::serialQThread(){
+    //    qDebug() << " serial port working in QThread";
+    /////////////////////////////////////////////////////////////////////////
+    fd = open("/dev/ttyS0",O_RDWR | O_NOCTTY );
+
+
+
+    if(fd == -1)						/* Error Checking */
+        qDebug () << ("Error! in Opening ttyS0  ");
+    else
+        qDebug () << ("ttyS0 Opened Successfully ");
+
+
+    /*---------- Setting the Attributes of the serial port using termios structure --------- */
+
+    struct termios SerialPortSettings;	/* Create the structure                          */
+
+    tcgetattr(fd, &SerialPortSettings);	/* Get the current attributes of the Serial port */
+
+    /* Setting the Baud rate */
+    cfsetispeed(&SerialPortSettings,B115200);
+    cfsetospeed(&SerialPortSettings,B115200);
+
+
+
+    if((tcsetattr(fd,TCSANOW,&SerialPortSettings)) != 0) /* Set the attributes to the termios structure*/
+        qDebug () << ("  ERROR ! in Setting attributes");
+       else
+         qDebug () << ("   Attributes set  ");
+
+
+ 
+
+    char s_buffer[42];
+    char readByte;
+    int  bytes_read = 0;    /* Number of bytes read by the read() system call */
+     
+ 
+    while(1)
+    {
+
+        bytes_read = read(fd,&readByte,1); /* Read the data                   */
+        write (fd, buffer[1] , 1); // writing on serial port
+       
+    }
+
+
+    //    close(fd); /* Close the serial port */
+}

@@ -1,0 +1,9 @@
+sudo apt-get install snapd snapd-xdg-open -y 
+
+sudo snap install notepad-plus-plus -y 
+
+sudo snap connect notepad-plus-plus:process-control -y 
+
+sudo snap connect notepad-plus-plus:removable-media -y 
+sudo snap connect notepad-plus-plus:hardware-observe -y 
+sudo snap connect notepad-plus-plus:cups-control -y 

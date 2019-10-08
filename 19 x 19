@@ -1,0 +1,64 @@
+  QElapsedTimer qtim;
+    qtim.start();
+
+    //    Mat matA(1080,1080, DataType<int>::type);
+    //    matA.at<short>(0,0) = 1;
+    //    qDebug()  << " value " << matA.at<short>(0,0);
+#pragma omp parallel for
+    for (short column = colStart; column < fillColl; column++)
+    {
+        for (short row = startRow; row < fillRow + 128 ; row++)
+        {
+            //                if( (int) pth(row - mapCenterY, column - mapCenterX) <= chfAreaRadius )
+
+            double max3 = 0;
+            double min3 = 0;
+            int elev;
+            Mat image_roi2;
+            Rect region_of_interest2 = Rect(0, 0, 19, 19);
+            cv::Point2d coordinateMain2;
+            //            QgsPoint point = map2Pix->toMapCoordinates(column, 128);
+            QgsPoint point = map2Pix->toMapCoordinates(column, row); // transform is converse to lat long to pixel location
+            //                        qDebug() << " toMapCoordinates : Column " << column <<    ":   " << point.x();
+            //            QgsPoint point = map2Pix->toMapCoordinates(column, 128); // transform is converse to lat long to pixel location
+            //
+            //            qDebug() << " -- " << point.x() << " || " << point.y();
+            int x= int(point.x());
+            int y= int(point.y());
+
+            if (!demArr2[x][y].dem.empty())
+            {
+                coordinateMain2 = {(std::abs(point.x() -  demArr2[x][y].originLong) / raster_layer_per_pixel), (std::abs(point.y() -  demArr2[x][y].originLat) / raster_layer_per_pixel)};
+                matA.at<short>(column, row) = demArr2[x][y].dem.at<short>(coordinateMain2);
+                //                matA.at<short>(column, 128) = demArr2[x][y].dem.at<short>(coordinateMain2);
+
+                //                if((3601 - int(coordinateMain2.x) >= range_of_region) && (3601 - int(coordinateMain2.y) >= range_of_region))
+                //                {
+                //                    region_of_interest2 = Rect(int(coordinateMain2.x), int(coordinateMain2.y), range_of_region, range_of_region);
+                //                }
+                //                else if ((3601 - int(coordinateMain2.x) >= range_of_region) && (3601 - int(coordinateMain2.y) < range_of_region))
+                //                {
+                //                    region_of_interest2 = Rect(int(coordinateMain2.x), int(coordinateMain2.y), range_of_region, 3601 - int(coordinateMain2.y));
+                //                }
+                //                else if ((3601 - int(coordinateMain2.x) < range_of_region) && (3601 - int(coordinateMain2.y) >= range_of_region))
+                //                {
+                //                    region_of_interest2 = Rect(int(coordinateMain2.x), int(coordinateMain2.y), 3601 - int(coordinateMain2.x), range_of_region);
+                //                }
+                //                else if((3601 - int(coordinateMain2.x) < range_of_region) && (3601 - int(coordinateMain2.y) < range_of_region))
+                //                {
+                //                    region_of_interest2 = Rect(int(coordinateMain2.x), int(coordinateMain2.y), 3601 - int(coordinateMain2.x), 3601 - int(coordinateMain2.y));
+                //                }
+                //                else{
+                //                    elev = demArr2[x][y].dem.at<short>(coordinateMain2);
+                //                }
+                //                image_roi2 = demArr2[x][y].dem(region_of_interest2);
+                //                minMaxLoc(image_roi2, &min3, &max3);
+                //                matA.at<short>(column, row)  = int(max3);
+            }else {
+                //                matA.at<short>(column, 128) = -22;
+                matA.at<short>(column, row) = -22;
+            }
+
+
+        }
+    }

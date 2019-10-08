@@ -1,0 +1,6 @@
+    double dSource = 9876543.897 ;
+    byte bArray [ sizeof( double ) ] = { 0 };
+    memcpy( bArray , &dSource , sizeof( double ) );
+
+    double dDestination ;
+    memcpy( &dDestination , bArray , sizeof( double ) );

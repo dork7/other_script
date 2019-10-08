@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# turn on fan for safety
+echo "Enabling fan for safety..."
+if [ ! -w /sys/kernel/debug/tegra_fan/target_pwm ] ; then
+	echo "Cannot set fan -- exiting..."
+fi
+echo 255 > /sys/kernel/debug/tegra_fan/target_pwm
+
+echo 0 > /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable
+echo 1 > /sys/kernel/cluster/immediate
+echo 1 > /sys/kernel/cluster/force
+echo G > /sys/kernel/cluster/active
+echo "Cluster: `cat /sys/kernel/cluster/active`"
+
+# online all CPUs - ignore errors for already-online units
+echo "onlining CPUs: ignore errors..."
+for i in 0 1 2 3 ; do
+	echo 1 > /sys/devices/system/cpu/cpu${i}/online
+done
+echo "Online CPUs: `cat /sys/devices/system/cpu/online`"

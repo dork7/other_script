@@ -1,0 +1,15 @@
+        //        QCoreApplication::processEvents(QEventLoop::AllEvents, 1);
+        //        usleep( 200000);      //200000000=200s  200000 = 200 ms
+        //        if(timer.elapsed() < 200)
+        //        {
+        //            QTime dieTime= QTime::currentTime().addMSecs(200-timer.elapsed());
+        //            while (QTime::currentTime() < dieTime){
+        //                QCoreApplication::processEvents(QEventLoop::AllEvents, 1);
+        //            }
+        //        }
+        //        else{
+        //            QTime dieTime= QTime::currentTime().addMSecs(5);
+        //            while (QTime::currentTime() < dieTime){
+        //                QCoreApplication::processEvents(QEventLoop::AllEvents, 1);
+        //            }
+        //        }

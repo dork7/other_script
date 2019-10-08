@@ -1,0 +1,94 @@
+	Locals		
+		angularDistance	3.270287142991681e-06	double
+		bearingToRad	-0.7853981633974483	double
+		cosAngDist	0.9999999999946526	double
+		cosBearingAngle	0.7071067811865476	double
+		cosLat1	0.8658246211490517	double
+		distanceToAddInMeter	20.834999388	double
+		earthRadiusInMeter	6371000.0	double
+		lat1ToRad	0.5240002013262576	double
+		lat2ToRad	0.5240025137669277	double
+		lon1ToRad	1.2328063358291868	double
+		lon2ToRad	1.2328036650281389	double
+		sinAngDist	3.270287142985852e-06	double
+		sinBearingAngle	-0.7071067811865475	double
+		sinLat1	0.500347604583155	double
+		sinLat2	0.5003496067498844	double
+--------------------------------------------------------------------
+
+
+
+	Locals		
+		angularDistance	3.270287142991681e-06	double
+		bearingToRad	-0.7853981633974483	double
+		cosAngDist	0.9999999999946526	double
+		cosBearingAngle	0.7071067811865476	double
+		cosLat1	0.8658234641225867	double
+		distanceToAddInMeter	20.834999388	double
+		earthRadiusInMeter	6371000.0	double
+		lat1ToRad	0.5240025137669277	double
+		lat2ToRad	0.524004826207598	double
+		lon1ToRad	1.2328036650281389	double
+		lon2ToRad	1.2328009942235219	double
+		sinAngDist	3.270287142985852e-06	double
+		sinBearingAngle	-0.7071067811865475	double
+		sinLat1	0.5003496067498844	double
+		sinLat2	0.5003516089139383	double
+--------------------------------------------------------------------
+
+
+	Locals		
+		angularDistance	3.270287142991681e-06	double
+		bearingToRad	-0.7853981633974483	double
+		cosAngDist	0.9999999999946526	double
+		cosBearingAngle	0.7071067811865476	double
+		cosLat1	0.8658223070914917	double
+		distanceToAddInMeter	20.834999388	double
+		earthRadiusInMeter	6371000.0	double
+		lat1ToRad	0.524004826207598	double
+		lat2ToRad	0.5240071386482682	double
+		lon1ToRad	1.2328009942235219	double
+		lon2ToRad	1.2327983234153357	double
+		sinAngDist	3.270287142985852e-06	double
+		sinBearingAngle	-0.7071067811865475	double
+		sinLat1	0.5003516089139383	double
+		sinLat2	0.5003536110753165	double
+--------------------------------------------------------------------	
+
+
+	Locals		
+		angularDistance	3.270287142991681e-06	double
+		bearingToRad	-0.7853981633974483	double
+		cosAngDist	0.9999999999946526	double
+		cosBearingAngle	0.7071067811865476	double
+		cosLat1	0.8658211500557669	double
+		distanceToAddInMeter	20.834999388	double
+		earthRadiusInMeter	6371000.0	double
+		lat1ToRad	0.5240071386482682	double
+		lat2ToRad	0.5240094510889383	double
+		lon1ToRad	1.2327983234153357	double
+		lon2ToRad	1.2327956526035804	double
+		sinAngDist	3.270287142985852e-06	double
+		sinBearingAngle	-0.7071067811865475	double
+		sinLat1	0.5003536110753165	double
+		sinLat2	0.5003556132340191	double
+--------------------------------------------------------------------
+
+
+	Locals		
+		angularDistance	3.270287142991681e-06	double
+		bearingToRad	-0.7853981633974483	double
+		cosAngDist	0.9999999999946526	double
+		cosBearingAngle	0.7071067811865476	double
+		cosLat1	0.8658199930154123	double
+		distanceToAddInMeter	20.834999388	double
+		earthRadiusInMeter	6371000.0	double
+		lat1ToRad	0.5240094510889383	double
+		lat2ToRad	0.5240117635296082	double
+		lon1ToRad	1.2327956526035804	double
+		lon2ToRad	1.232792981788256	double
+		sinAngDist	3.270287142985852e-06	double
+		sinBearingAngle	-0.7071067811865475	double
+		sinLat1	0.5003556132340191	double
+		sinLat2	0.5003576153900461	double
+--------------------------------------------------------------------

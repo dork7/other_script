@@ -1,0 +1,67 @@
+struct demStruct2{
+    double originLong;   //max X
+    double originLat;       // min Y
+    // for calculations
+    double maxX;
+    double minY;
+    QString fileName;
+
+    cv::Mat dem;
+    short *mattt;
+} demArr2[100][100];
+
+
+
+size_t getFilesize(const char* filename) {
+    struct stat st;
+    stat(filename, &st);
+    return st.st_size;
+}
+
+
+
+
+ size_t filesize = getFilesize(c_array);
+                    //Open file
+                    // int fd = open(argv[1], O_RDONLY, 0);
+                    int fd = open(c_array, O_RDONLY, 0);
+                    assert(fd != -1);
+                    void * mmappedData = mmap(NULL, filesize, PROT_READ, MAP_PRIVATE | MAP_POPULATE, fd, 0);
+//                    dem = Mat(3601, 3601, CV_16U, (short*)mmappedData);
+//                    dem = cv::imread(c_array, cv::IMREAD_LOAD_GDAL | cv::IMREAD_ANYDEPTH );
+                    //                    dilate(dem,dem,mkernal,Point(0,0),1,1,1);
+//                    demArr2[x][y].dem =dem;
+                    demArr2[x][y].mattt = (short*)mmappedData;
+
+
+                    matA.at<short>(column, row) = demArr2[x][y].mattt[( int(coordinateMain2.y) * 3601 ) + int(coordinateMain2.x)];//demArr2[x][y].dem.at<short>(coordinateMain2);
+
+
+    clock_gettime(CLOCK_MONOTONIC, &(mtimes));
+    t1 = mtimes.tv_sec + 0.000000001*mtimes.tv_nsec;
+
+    short *lol = (short*)mmappedData;
+    qDebug() << lol[23320];
+    qDebug() << lol[12990520];
+
+//        for (int i = 23320 ; i < 12990521 ; i++ ){
+//       qDebug() << lol[i];
+////            ele = lol[i];
+//    }
+
+
+//    qDebug() << " == " << (short *)&mmappedData + (3601*3601*55);
+//    for ( int i = 0 ; i < 1280 ; i++ ){
+//        for ( int j = 0 ; j < 1280 ; j++ )
+//        {
+//            //           qDebug() <<
+////            ele =  m.at<short>(i,j);
+//           *mmappedData;
+//        }
+//    }
+    clock_gettime(CLOCK_MONOTONIC, &(mtimes));
+    t2 = mtimes.tv_sec + 0.000000001*mtimes.tv_nsec;
+    delta = 1000*(t2-t1);
+    qDebug() << " ------------" << delta;
+
+
